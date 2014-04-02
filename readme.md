@@ -6,6 +6,12 @@ Install Vagrant from [http://www.vagrantup.com/downloads.html](http://www.vagran
 ## Vagrant add-ons
 `vagrant plugin install vagrant-hostsupdater`
 
+## First time
+Make a folder named htdocs
+ie `drush make --working-copy https://raw.github.com/loopdk/profile/development/drupal.make htdocs`
+
+Create a database for loop.
+
 ## Simple control of Vagrant
 ### To start
 `vagrant up`
