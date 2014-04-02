@@ -10,8 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box_url = "http://tj.unitmakers.dk/virtualbox.box"
 
   # Hostname
-  config.vm.hostname = "loop"
-  config.hostsupdater.aliases = ["loop.local"]
+  config.vm.hostname = "loop.local"
 
   # IP
   config.vm.network "private_network", ip: "192.168.50.11"
