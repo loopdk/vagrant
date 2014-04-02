@@ -25,7 +25,7 @@ After bootstrap is done, connect to mysql and create a database for loop.
 `vagrant destroy`
 
 ## Information
-Apache is avavible from [http://loop.vm](http://loop.vm)
+Apache is available from [http://loop.vm](http://loop.vm)
 
 Varnish from [http://loop.vm:8000](http://loop.vm:8000)
 
