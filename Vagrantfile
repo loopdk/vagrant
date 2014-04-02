@@ -7,10 +7,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Box info
   config.vm.box = "debian"
-  config.vm.box_url = "http://tj.unitmakers.dk/debian-7.box"
+  config.vm.box_url = "http://gambit.etek.dk/vagrant/debian-7.box"
 
   # Hostname
-  config.vm.hostname = "loop.local"
+  config.vm.hostname = "loop.vm"
 
   # IP
   config.vm.network "private_network", ip: "192.168.50.11"
