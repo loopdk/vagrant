@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Box info
   config.vm.box = "debian"
-  #config.vm.box_url = "http://tj.unitmakers.dk/virtualbox.box"
+  config.vm.box_url = "http://tj.unitmakers.dk/debian-7.box"
 
   # Hostname
   config.vm.hostname = "loop.local"
