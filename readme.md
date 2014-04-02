@@ -1,6 +1,7 @@
 # LOOP Vagrant setup
 
 ## Vagrant setup
+Install VirtualBox form [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 Install Vagrant from [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
 
 ## Vagrant add-ons
