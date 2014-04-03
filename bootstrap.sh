@@ -29,7 +29,7 @@ drush version > /dev/null 2>&1
 
 # Apache config
 echo "Configuring Apache..."
-apt-get -y install php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl php5-dev > /dev/null 2>&1
+apt-get -y install php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl php5-dev php5-xdebug > /dev/null 2>&1
 rm -rf /var/www
 ln -s /vagrant/htdocs /var/www
 sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
@@ -49,6 +49,14 @@ sed -i '/;date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/cli/ph
 sed -i '/upload_max_filesize = 2M/c upload_max_filesize = 16M' /etc/php5/apache2/php.ini
 sed -i '/post_max_size = 8M/c post_max_size = 20M' /etc/php5/apache2/php.ini
 sed -i '/;realpath_cache_size = 16k/c realpath_cache_size = 256k' /etc/php5/apache2/php.ini
+
+cat >> /etc/php5/conf.d/20-xdebug.ini <<<DELIM
+xdebug.remote_enable=1
+xdebug.remote_handler=dbgp
+xdebug.remote_host=192.168.50.1
+xdebug.remote_port=9000
+xdebug.remote_autostart=0
+DELIM
 
 pecl install uploadprogress > /dev/null 2>&1
 echo "extension=uploadprogress.so" > /etc/php5/conf.d/uploadprogress.ini
