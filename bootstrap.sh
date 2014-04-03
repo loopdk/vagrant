@@ -104,7 +104,7 @@ rm -rf solr-*
 mv /var/lib/tomcat7/solr/collection1 /var/lib/tomcat7/solr/loop_stg
 echo "name=loop_stg" > /var/lib/tomcat7/solr/loop_stg/core.properties
 
-drush dl search_api_solr
+drush dl search_api_solr > /dev/null 2>&1
 cp search_api_solr/solr-conf/4.x/* /var/lib/tomcat7/solr/loop_stg/conf/
 rm -rf search_api_solr
 sed -i '/\<Connector port="8080" protocol="HTTP\/1.1"/c \<Connector port="8983" protocol="HTTP\/1.1"' /var/lib/tomcat7/conf/server.xml
