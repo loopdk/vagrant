@@ -29,7 +29,7 @@ drush version > /dev/null 2>&1
 
 # Apache config
 echo "Configuring Apache..."
-apt-get -y install php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl php5-dev php5-xdebug > /dev/null 2>&1
+apt-get -y install git php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl php5-dev php5-xdebug > /dev/null 2>&1
 rm -rf /var/www
 ln -s /vagrant/htdocs /var/www
 sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
