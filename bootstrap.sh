@@ -2,23 +2,23 @@
 
 # APT
 echo "Updating system (apt)..."
-apt-get update
-apt-get upgrade
+apt-get update > /dev/null 2>&1
+apt-get upgrade > /dev/null 2>&1
 
 # Set timezone.
 echo "Setting timezone..."
 echo "Europe/Copenhagen" > /etc/timezone
-/usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata #> /dev/null 2>&1
+/usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 
 # Set locale
 echo "Setting up locale..."
 echo en_GB.UTF-8 UTF-8 > /etc/locale.gen
 echo en_DK.UTF-8 UTF-8 >> /etc/locale.gen
 echo da_DK.UTF-8 UTF-8 >> /etc/locale.gen
-/usr/sbin/locale-gen #> /dev/null 2>&1
+/usr/sbin/locale-gen > /dev/null 2>&1
 export LANGUAGE=en_DK.UTF-8 > /dev/null 2>&1
 export LC_ALL=en_DK.UTF-8 > /dev/null 2>&1
-/usr/sbin/dpkg-reconfigure --frontend noninteractive locales
+/usr/sbin/dpkg-reconfigure --frontend noninteractive locales > /dev/null 2>&1
 
 # Drush
 echo "Installing drush..."
@@ -44,8 +44,8 @@ a2enmod expires > /dev/null 2>&1
 # Configura PHP
 echo "Configuring up PHP..."
 sed -i '/memory_limit = 128M/c memory_limit = 512M' /etc/php5/apache2/php.ini
-sed -i ';date.timezone =/c date.timezone = Europe/Copenhagen' /etc/php5/apache2/php.ini
-sed -i ';date.timezone =/c date.timezone = Europe/Copenhagen' /etc/php5/cli/php.ini
+sed -i ';date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/apache2/php.ini
+sed -i ';date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/cli/php.ini
 sed -i '/upload_max_filesize = 2M/c upload_max_filesize = 16M' /etc/php5/apache2/php.ini
 sed -i '/post_max_size = 8M/c post_max_size = 20M' /etc/php5/apache2/php.ini
 sed -i '/;realpath_cache_size = 16k/c realpath_cache_size = 256k' /etc/php5/apache2/php.ini
@@ -94,13 +94,13 @@ DELIM
 echo "Configuring Solr"
 apt-get install -y java7-jdk tomcat7 > /dev/null 2>&1
 cd ~
-wget http://ftp.download-by.net/apache/lucene/solr/4.7.0/solr-4.7.0.tgz -O solr.tgz > /dev/null 2>&1
+wget http://ftp.download-by.net/apache/lucene/solr/4.7.1/solr-4.7.1.tgz -O solr.tgz > /dev/null 2>&1
 tar xzf solr.tgz
 rm solr.tgz
-cp solr-4.7.0/example/lib/ext/* /usr/share/tomcat7/lib/
-cp solr-4.7.0/dist/solr-4.7.0.war /var/lib/tomcat7/webapps/solr.war
-cp -R solr-4.7.0/example/solr /var/lib/tomcat7
-rm -rf solr-4.7.0
+cp solr-*/example/lib/ext/* /usr/share/tomcat7/lib/
+cp solr-*/dist/solr-*.war /var/lib/tomcat7/webapps/solr.war
+cp -R solr-*/example/solr /var/lib/tomcat7
+rm -rf solr-*
 mv /var/lib/tomcat7/solr/collection1 /var/lib/tomcat7/solr/loop_stg
 echo "name=loop_stg" > /var/lib/tomcat7/solr/loop_stg/core.properties
 
