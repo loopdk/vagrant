@@ -25,6 +25,8 @@ After bootstrap is done, connect to mysql and create a database for loop.
 `vagrant destroy`
 
 ## Information
+Default IP: 192.168.50.11
+
 Apache is available from [http://loop.vm](http://loop.vm)
 
 Varnish from [http://loop.vm:8000](http://loop.vm:8000)
@@ -32,3 +34,5 @@ Varnish from [http://loop.vm:8000](http://loop.vm:8000)
 Solr [http://loop.vm:8983/solr](http://http://loop.vm:8983/solr)
 
 Default mySQL password is 'vagrant'.
+
+Remote x-debug is enalbed on port 9000 and connecting to 192.168.50.1
