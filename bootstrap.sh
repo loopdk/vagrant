@@ -6,7 +6,7 @@ apt-get update > /dev/null 2>&1
 apt-get upgrade > /dev/null 2>&1
 
 # Set timezone.
-echo "Setting timezone..."
+echo "Setting up timezone..."
 echo "Europe/Copenhagen" > /etc/timezone
 /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 
@@ -29,7 +29,7 @@ drush version > /dev/null 2>&1
 
 # Apache config
 echo "Configuring Apache..."
-apt-get -y install php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl > /dev/null 2>&1
+apt-get -y install php5-mysql libapache2-mod-php5 php5-gd php-db apache2 php5-curl php5-dev > /dev/null 2>&1
 rm -rf /var/www
 ln -s /vagrant/htdocs /var/www
 sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
@@ -44,8 +44,8 @@ a2enmod expires > /dev/null 2>&1
 # Configura PHP
 echo "Configuring up PHP..."
 sed -i '/memory_limit = 128M/c memory_limit = 512M' /etc/php5/apache2/php.ini
-sed -i ';date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/apache2/php.ini
-sed -i ';date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/cli/php.ini
+sed -i '/;date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/apache2/php.ini
+sed -i '/;date.timezone =/c date.timezone = Europe\/Copenhagen' /etc/php5/cli/php.ini
 sed -i '/upload_max_filesize = 2M/c upload_max_filesize = 16M' /etc/php5/apache2/php.ini
 sed -i '/post_max_size = 8M/c post_max_size = 20M' /etc/php5/apache2/php.ini
 sed -i '/;realpath_cache_size = 16k/c realpath_cache_size = 256k' /etc/php5/apache2/php.ini
@@ -116,7 +116,7 @@ echo "Installing Varnish..."
 wget http://repo.varnish-cache.org/debian/GPG-key.txt > /dev/null 2>&1
 apt-key add GPG-key.txt > /dev/null 2>&1
 rm GPG-key.txt
-echo "deb http://repo.varnish-cache.org/debian/ $(lsb_release -s -c) varnish-3.0" > /etc/apt/sources.list.d/varnish.list
+echo "deb http://repo.varnish-cache.org/debian/ wheezy varnish-3.0" > /etc/apt/sources.list.d/varnish.list
 apt-get update > /dev/null 2>&1
 apt-get install varnish -y > /dev/null 2>&1
 
