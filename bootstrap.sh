@@ -50,7 +50,7 @@ sed -i '/upload_max_filesize = 2M/c upload_max_filesize = 16M' /etc/php5/apache2
 sed -i '/post_max_size = 8M/c post_max_size = 20M' /etc/php5/apache2/php.ini
 sed -i '/;realpath_cache_size = 16k/c realpath_cache_size = 256k' /etc/php5/apache2/php.ini
 
-cat >> /etc/php5/conf.d/20-xdebug.ini <<<DELIM
+cat << DELIM >> /etc/php5/conf.d/20-xdebug.ini
 xdebug.remote_enable=1
 xdebug.remote_handler=dbgp
 xdebug.remote_host=192.168.50.1
