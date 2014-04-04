@@ -5,12 +5,17 @@ Install VirtualBox form [https://www.virtualbox.org/wiki/Downloads](https://www.
 
 Install Vagrant from [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
 
+## Clone this repository
+
+`git clone git@github.com:loopdk/vagrant.git`
+
 ## Vagrant add-ons
 `vagrant plugin install vagrant-hostsupdater`
 
 ## First time
 Make a folder named htdocs
-ie `drush make --working-copy https://raw.github.com/loopdk/profile/development/drupal.make htdocs`
+
+`drush make --working-copy https://raw.github.com/loopdk/profile/development/drupal.make htdocs`
 
 After bootstrap is done, connect to mysql and create a database for loop.
 
