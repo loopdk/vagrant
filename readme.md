@@ -5,6 +5,10 @@ Install VirtualBox form [https://www.virtualbox.org/wiki/Downloads](https://www.
 
 Install Vagrant from [http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
 
+## Clone this repository
+
+`git clone git@github.com:loopdk/vagrant.git`
+
 ## Vagrant add-ons
 `vagrant plugin install vagrant-hostsupdater`
 
