@@ -3,7 +3,7 @@ drush @loop_stg sql-dump --tables-list=comment,field_data_body,field_data_commen
 
 vagrant ssh -c "cd /var/www && drush sql-query --file=/vagrant/loop_sync.sql"
 
-drush rsync namor.aakb.dk:/home/www/stg_loop_dk/htdocs/sites/loop.etek.dk/files htdocs/sites/default/
+drush rsync deploy@namor.aakb.dk:/home/www/stg_loop_dk/htdocs/sites/loop.etek.dk/files htdocs/sites/default/
 
 vagrant ssh -c "cd /var/www && drush cc all"
 
