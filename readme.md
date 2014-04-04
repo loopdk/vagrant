@@ -29,6 +29,9 @@ After bootstrap is done, connect to mysql and create a database for loop.
 ### To delete
 `vagrant destroy`
 
+### Tu use Drush
+`vagrant ssh`
+
 ## Information
 Default IP: 192.168.50.11
 
