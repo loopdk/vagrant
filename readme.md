@@ -40,4 +40,4 @@ Solr [http://loop.vm:8983/solr](http://http://loop.vm:8983/solr)
 
 Default mySQL password is 'vagrant'.
 
-Remote x-debug is enalbed on port 9000 and connecting to 192.168.50.1
+Remote x-debug is enabled on port 9000 and connecting to 192.168.50.1
