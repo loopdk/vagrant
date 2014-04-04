@@ -29,7 +29,7 @@ After bootstrap is done, connect to mysql and create a database for loop.
 ### To delete
 `vagrant destroy`
 
-### Tu use Drush
+### To use Drush
 `vagrant ssh`
 
 ## Information
