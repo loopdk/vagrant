@@ -6,8 +6,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Box info
-  config.vm.box = "debian"
-  config.vm.box_url = "http://gambit.etek.dk/vagrant/debian-7.box"
+  config.vm.box = "umtj/debian-7"
+  config.vm.box_check_update = true
 
   # Hostname
   config.vm.hostname = "loop.vm"
