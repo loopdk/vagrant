@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# APT
-echo "Updating system (apt)..."
-apt-get update > /dev/null 2>&1
-apt-get upgrade > /dev/null 2>&1
-
 # Set timezone.
 echo "Setting up timezone..."
 echo "Europe/Copenhagen" > /etc/timezone
@@ -18,7 +13,22 @@ echo da_DK.UTF-8 UTF-8 >> /etc/locale.gen
 /usr/sbin/locale-gen > /dev/null 2>&1
 export LANGUAGE=en_DK.UTF-8 > /dev/null 2>&1
 export LC_ALL=en_DK.UTF-8 > /dev/null 2>&1
+echo "locales locales/locales_to_be_generated multiselect da_DK.UTF-8 UTF-8, en_DK.UTF-8 UTF-8, en_GB.UTF-8 UTF-8" | debconf-set-selections
 /usr/sbin/dpkg-reconfigure --frontend noninteractive locales > /dev/null 2>&1
+
+# Add dotdeb
+cat > /etc/apt/sources.list.d/dotdeb.list <<DELIM
+deb http://packages.dotdeb.org wheezy all
+deb-src http://packages.dotdeb.org wheezy all
+DELIM
+wget http://www.dotdeb.org/dotdeb.gpg > /dev/null 2>&1
+sudo apt-key add dotdeb.gpg  > /dev/null 2>&1
+rm dotdeb.gpg
+
+# APT
+echo "Updating system (apt)..."
+apt-get update > /dev/null 2>&1
+apt-get upgrade > /dev/null 2>&1
 
 # Drush
 echo "Installing drush..."
@@ -94,7 +104,7 @@ apc.ttl=7200
 apc.user_ttl=7200
 apc.num_files_hint=1024
 apc.mmap_file_mask=/tmp/apc.XXXXXX
-apc.enable_cli=1
+apc.enable_cli=0
 apc.cache_by_default=1
 DELIM
 
@@ -102,7 +112,7 @@ DELIM
 echo "Configuring Solr"
 apt-get install -y java7-jdk tomcat7 > /dev/null 2>&1
 cd ~
-wget http://ftp.download-by.net/apache/lucene/solr/4.7.1/solr-4.7.1.tgz -O solr.tgz > /dev/null 2>&1
+wget http://archive.apache.org/dist/lucene/solr/4.8.0/solr-4.8.0.tgz -O solr.tgz > /dev/null 2>&1
 tar xzf solr.tgz
 rm solr.tgz
 cp solr-*/example/lib/ext/* /usr/share/tomcat7/lib/

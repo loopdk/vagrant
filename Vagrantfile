@@ -6,7 +6,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Box info
-  config.vm.box = "umtj/debian-7"
+  config.vm.box = "chef/debian-7.6"
   config.vm.box_check_update = true
 
   # Hostname
@@ -14,10 +14,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # IP
   config.vm.network "private_network", ip: "192.168.50.11"
-  
+
   # Shared folder
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   # What to install
   config.vm.provision :shell, :path => "bootstrap.sh"
+
+  # SSH
+  config.ssh.forward_agent = true
 end
