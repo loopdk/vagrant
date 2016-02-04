@@ -15,7 +15,7 @@ Install Vagrant from [http://www.vagrantup.com/downloads.html](http://www.vagran
 ## First time
 Make a folder named htdocs
 
-`drush make --working-copy https://raw.github.com/os2loop/profile/development/drupal.make htdocs`
+`drush make --working-copy https://raw.github.com/os2loop/profile/develop/drupal.make htdocs`
 
 After bootstrap is done, connect to mysql and create a database for loop.
 
