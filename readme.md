@@ -1,3 +1,10 @@
+# PROJECT IS OUTDATED
+
+This project have been archived as it no longer is active.
+
+-----
+
+
 # LOOP Vagrant setup
 
 ## Vagrant setup
